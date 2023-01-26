@@ -1,7 +1,7 @@
 package com.mosayed.myapplication.domain.repository
 
-import com.mosayed.myapplication.core.Aya
-import com.mosayed.myapplication.core.Sura
+import com.mosayed.myapplication.domain.model.Aya
+import com.mosayed.myapplication.domain.model.Sura
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
