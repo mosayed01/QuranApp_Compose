@@ -1,24 +1,16 @@
 package com.mosayed.myapplication.data.remote.util
 
-import io.ktor.client.features.ClientRequestException
-import io.ktor.client.features.RedirectResponseException
-import io.ktor.client.features.ServerResponseException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
-suspend fun <T> tryToCall(call: suspend () -> List<T>): List<T> {
+suspend fun <T> tryToCall(call: suspend () -> T): T? {
     return try {
-        call()
-    } catch (e: RedirectResponseException) {
-        println("Error: ${e.response.status.description}")
-        emptyList()
-    } catch (e: ClientRequestException) {
-        println("Error: ${e.response.status.description}")
-        emptyList()
-    } catch (e: ServerResponseException) {
-        println("Error: ${e.response.status.description}")
-        emptyList()
+        withContext(Dispatchers.IO) {
+            call()
+        }
     } catch (e: Exception) {
         println("Error: ${e.message}")
-        emptyList()
+        null
     }
 }

@@ -1,4 +1,4 @@
-package com.mosayed.quranapp.data.remote.util
+package com.mosayed.myapplication.data.remote.util
 
 object HttpRouts {
     const val BASE_URL_SURA = "http://api.alquran.cloud/v1/surah"
