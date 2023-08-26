@@ -28,9 +28,9 @@ class SuraViewModel @Inject constructor(
             try {
                 _state.update { it.copy(isLoading = true) }
                 val suraList = getSuraListRemoteUseCase()
-                _state.update { it.copy(isLoading = false,suraList = suraList.toUiState()) }
-            }catch (e: Exception){
-                _state.update { it.copy(isLoading = false,error = e.message ?: "Unknown Error") }
+                _state.update { it.copy(isLoading = false, suraList = suraList.toUiState()) }
+            } catch (e: Exception) {
+                _state.update { it.copy(isLoading = false, error = e.message ?: "Unknown Error") }
             }
         }
     }
@@ -40,7 +40,7 @@ private fun List<Sura>.toUiState(): List<SuraUiState.SuraItem> {
     return map {
         SuraUiState.SuraItem(
             suraNumber = it.number,
-            name = it.name,
+            name = it.englishName,
             numberOfAyahs = it.numberOfAyahs,
             revelationType = it.revelationType
         )
