@@ -22,6 +22,6 @@ fun SetUpNavGraph(navHostController: NavHostController) {
 }
 
 sealed class Screen(val route: String) {
-    object Sura : Screen("sura_screen")
-    object Aya : Screen("aya_screen")
+    data object Sura : Screen("sura_screen")
+    data object Aya : Screen("aya_screen")
 }

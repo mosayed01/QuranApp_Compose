@@ -4,7 +4,6 @@ import com.mosayed.myapplication.data.remote.QuranService
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 
-@ViewModelScoped
 class GetSuraListRemoteUseCase @Inject constructor(
     private val service: QuranService
 ) {
